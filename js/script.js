@@ -5,62 +5,56 @@ let numLands = 17; // get from input
 let startHandSize = 7; // get from input
 let startLands = 3; // get from input
 
-// const NOT_LAND // this will be a button the user clicks if he draws a card and it is not a land and --> it will decrease deckSize
+const NOT_LAND = document.querySelector("#notALand");
+const LAND = document.querySelector("#isALand");
+
 const notALand = () => {
     deckSize--;
 };
-// const LAND // this will be a button the user clicks if he draws a land --> it will decrease the numLands variable
+
 const isALand = () => {
     numLands--;
     deckSize--;
 };
 
-const calculateChance = (deckSize, numLands) => {
-    if (numLands - startLands === 0) {
-        console.log("no more lands")
-    }
+const calculateChance = () => {
     let result = (numLands - startLands) / (deckSize - startHandSize);
 
-    return result.toFixed(2) * 100;
+    return (result * 100).toFixed(0);
 };
 
+NOT_LAND.addEventListener("click", () => {
+    if (numLands - startLands === 0) {
+        console.log("no more lands");
+        return;
+    }
+    notALand();
+    calculateChance();
+    console.log(`${calculateChance()}% chance to draw a land`);
+    console.log(
+        `${deckSize - startHandSize} cards left in deck -- ${
+            numLands - startLands
+        } lands left in deck`
+    );
+});
+
+LAND.addEventListener("click", () => {
+    if (numLands - startLands === 0) {
+        console.log("no more lands");
+        return;
+    }
+    isALand();
+    calculateChance();
+    console.log(`${calculateChance()}% chance to draw a land`);
+    console.log(
+        `${deckSize - startHandSize} cards left in deck -- ${
+            numLands - startLands
+        } lands left in deck`
+    );
+});
+
+calculateChance();
 // get the number of lands in hand at the start of the game (have the user input the number) then calculate and display the chance of drawing a land
 
 // make a button that you can click every time you draw a land to get a new percent chance of drawing a land (lower the card count by 1 every time the button is clicked)
 // have a button for each card you draw either land or not land to adjust the numbers
-
-
-isALand();
-isALand();
-isALand();
-isALand();
-isALand();
-isALand();
-isALand();
-isALand();
-isALand();
-notALand();
-notALand();
-notALand();
-notALand();
-notALand();
-notALand();
-notALand();
-notALand();
-notALand();
-notALand();
-notALand();
-notALand();
-notALand();
-notALand();
-notALand();
-notALand();
-isALand();
-isALand();
-isALand()
-notALand();
-console.log(deckSize - startHandSize)
-console.log(numLands - startLands)
-
-console.log(`${calculateChance(deckSize, numLands)}% chance to draw a land`)
-
