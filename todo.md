@@ -1,0 +1,1 @@
+create another option to calculate the chance of drawing a certain card (how many copies are there?)

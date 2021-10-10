@@ -16,6 +16,9 @@ const isALand = () => {
 };
 
 const calculateChance = (deckSize, numLands) => {
+    if (numLands - startLands === 0) {
+        console.log("no more lands")
+    }
     let result = (numLands - startLands) / (deckSize - startHandSize);
 
     return result.toFixed(2) * 100;
@@ -26,16 +29,38 @@ const calculateChance = (deckSize, numLands) => {
 // make a button that you can click every time you draw a land to get a new percent chance of drawing a land (lower the card count by 1 every time the button is clicked)
 // have a button for each card you draw either land or not land to adjust the numbers
 
-// notALand();
-// notALand();
-// notALand();
-// notALand();
-// notALand();
-// notALand();
-// isALand();
-// isALand();
 
-// console.log(deckSize);
-console.log(numLands);
-// console.log(calculateChance(deckSize, numLands));
-// console.log(calculateChance(deckSize, numLands));
+isALand();
+isALand();
+isALand();
+isALand();
+isALand();
+isALand();
+isALand();
+isALand();
+isALand();
+notALand();
+notALand();
+notALand();
+notALand();
+notALand();
+notALand();
+notALand();
+notALand();
+notALand();
+notALand();
+notALand();
+notALand();
+notALand();
+notALand();
+notALand();
+notALand();
+isALand();
+isALand();
+isALand()
+notALand();
+console.log(deckSize - startHandSize)
+console.log(numLands - startLands)
+
+console.log(`${calculateChance(deckSize, numLands)}% chance to draw a land`)
+
